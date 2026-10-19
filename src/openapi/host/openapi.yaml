@@ -1,0 +1,192 @@
+openapi: 3.0.3
+info:
+  title: OMHP Host API
+  description: Open Media Host Protocol - Host API
+  version: 1.0.0
+tags:
+  - name: Host
+  - name: Content
+  - name: Author
+paths:
+  /:
+    get:
+      tags:
+        - Host
+      summary: Данные о хостинге
+      description: Информация о поддерживаемых типах контента и версиях API
+      responses:
+        '200':
+          description: Информация о хостинге
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HostInfo'
+              example:
+                content-type: 'video'
+                api-version:
+                  min: 0
+                  max: 0
+                name: 'Example Host'
+                law-description: 'Legal description'
+  /list:
+    get:
+      summary: Список контента
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListInfo'
+  /author/{id}:
+    get:
+      tags:
+        - Author
+      summary: Данные об авторе
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Информация об авторе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Author'
+  /video/0/{id}:
+    get:
+      tags:
+        - Content
+      summary: Получение данных о видео
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Информация о видео
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoContent'
+  /composition/0/{id}:
+    get:
+      tags:
+        - Content
+      summary: Получение композиции из разного контента
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Информация о композиции
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompositionContent'
+components:
+  schemas:
+    HostInfo:
+      type: object
+      required:
+        - api-version
+        - name
+      properties:
+        api-version:
+          type: object
+          required:
+            - min
+            - max
+          properties:
+            min:
+              type: integer
+            max:
+              type: integer
+        name:
+          type: string
+        law-description:
+          type: string
+    Author:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        icon:
+          type: string
+          format: uri
+        associated_links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+    ListItem:
+      type: object
+      properties:
+        public: boolean
+        link: string
+    ListInfo:
+      type: array
+      items:
+        $ref: '#/components/schemas/ListItem'
+    Link:
+      type: string
+      format: uri
+    VideoSource:
+      type: object
+      properties:
+        codec:
+          type: string
+        source:
+          type: string
+    ContentBase:
+      type: object
+      properties:
+        authors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+        associated_links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+    VideoContent:
+      allOf:
+        - $ref: '#/components/schemas/ContentBase'
+        - type: object
+          properties:
+            id:
+              type: string
+            title:
+              type: string
+            description:
+              type: string
+            source:
+              type: array
+              items:
+                $ref: '#/components/schemas/VideoSource'
+          required:
+            - id
+            - title
+    CompositionContent:
+      allOf:
+        - $ref: '#/components/schemas/ContentBase'
+        - type: object
+          properties:
+            id:
+              type: string
+            source:
+              type: string
+          required:
+            - id
+

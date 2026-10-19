@@ -1,12 +1,12 @@
 {
   "name": "open-media-host-protocol",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
   "license": "CC-BY-4.0",
   "description": "Diplodoc documentation project",
   "scripts": {
-    "build": "yfm build -i . -o ./build",
-    "dev": "yfm build -i . -o ./build -w",
+    "build": "yfm build -i ./src -o ./build",
+    "dev": "yfm build -i ./src -o ./build -w",
     "preview": "npx --yes serve ./build"
   },
   "devDependencies": {

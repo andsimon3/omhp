@@ -1,0 +1,20 @@
+title: OMHP - Open Media Host Protocol
+href: index.md
+navigation:
+  header:
+    rightItems:
+      - type: controls
+items:
+  - name: Введение
+    href: index.md
+  - name: Блоки
+    items:
+    - name: Хост
+      href: host/index.md
+      items:
+        - name: Композиция
+          href: host/media/composition.md
+        - name: Видео
+          href: host/media/video.md
+    - name: Агрегатор
+      href: aggregator/index.md
