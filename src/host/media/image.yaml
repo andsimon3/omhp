@@ -1,0 +1,78 @@
+openapi: 3.0.3
+info:
+  title: OMHP Host API - Image
+  description: Open Media Host Protocol - Image
+  version: 1.0.0
+tags:
+  - name: Content
+paths:
+  /image/list:
+    get:
+      tags:
+        - Content
+      summary: Получение списка ID изображений
+      responses:
+        '200':
+          description: Список ID изображений
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 100
+        - name: last_id
+          in: query
+          required: false
+          schema:
+            type: string
+  /image/{id}:
+    get:
+      tags:
+        - Content
+      summary: Получение данных об изображении
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Информация об изображении
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageContent'
+components:
+  schemas:
+    ImageContent:
+      allOf:
+        - $ref: '../../shared.yaml#/components/schemas/ContentBase'
+        - type: object
+          properties:
+            id:
+              type: string
+            title:
+              type: string
+            source:
+              type: array
+              items:
+                type: string
+          required:
+            - id
+            - title
+  parameters: {}
+  responses: {}
+  securitySchemes: {}
+  requestBodies: {}
+  headers: {}
+  examples: {}
+  links: {}
+  callbacks: {}

@@ -1,0 +1,79 @@
+openapi: 3.0.3
+info:
+  title: OMHP Host API - Author
+  description: Open Media Host Protocol - Author
+  version: 1.0.0
+tags:
+  - name: Author
+paths:
+  /author/list:
+    get:
+      tags:
+        - Author
+      summary: Получение списка ID авторов
+      responses:
+        '200':
+          description: Список ID авторов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 100
+        - name: last_id
+          in: query
+          required: false
+          schema:
+            type: string
+  /author/{id}:
+    get:
+      tags:
+        - Author
+      summary: Данные об авторе
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Информация об авторе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Author'
+components:
+  schemas:
+    Author:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        icon:
+          type: string
+          format: uri
+        associated_links:
+          type: array
+          items:
+            $ref: '../../shared.yaml#/components/schemas/Link'
+  parameters: {}
+  responses: {}
+  securitySchemes: {}
+  requestBodies: {}
+  headers: {}
+  examples: {}
+  links: {}
+  callbacks: {}

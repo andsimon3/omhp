@@ -1,0 +1,77 @@
+openapi: 3.0.3
+info:
+  title: OMHP Host API - Composition
+  description: Open Media Host Protocol - Composition
+  version: 1.0.0
+tags:
+  - name: Content
+paths:
+  /composition/list:
+    get:
+      tags:
+        - Content
+      summary: Получение списка ID композиций
+      responses:
+        '200':
+          description: Список ID композиций
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 100
+        - name: last_id
+          in: query
+          required: false
+          schema:
+            type: string
+  /composition/{id}:
+    get:
+      tags:
+        - Content
+      summary: Получение данных о композиции
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Информация о композиции
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompositionContent'
+components:
+  schemas:
+    CompositionContent:
+      allOf:
+        - $ref: '../../shared.yaml#/components/schemas/ContentBase'
+        - type: object
+          properties:
+            id:
+              type: string
+            title:
+              type: string
+            content:
+              type: string
+          required:
+            - id
+            - title
+            - content
+  parameters: {}
+  responses: {}
+  securitySchemes: {}
+  requestBodies: {}
+  headers: {}
+  examples: {}
+  links: {}
+  callbacks: {}

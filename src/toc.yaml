@@ -1,0 +1,40 @@
+title: OMHP - Open Media Host Protocol
+href: index.md
+navigation:
+  header:
+    rightItems:
+      - type: controls
+items:
+  - name: Введение
+    href: index.md
+  - name: Open API
+    items:
+      - name: Основные
+        include:
+          path: host/api
+          includers:
+            - name: openapi
+              input: host/base.yaml
+          mode: link
+      - name: Автор
+        include:
+          path: host/author
+          includers:
+            - name: openapi
+              input: host/media/author.yaml
+          mode: link
+      - name: Видео
+        include:
+          path: host/media/video
+          includers:
+            - name: openapi
+              input: host/media/video.yaml
+          mode: link
+      - name: Композиция
+        include:
+          path: host/media/composition
+          includers:
+            - name: openapi
+              input: host/media/composition.yaml
+          mode: link
+

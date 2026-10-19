@@ -1,0 +1,64 @@
+openapi: 3.0.3
+info:
+  title: OMHP Host API
+  description: Open Media Host Protocol - Host API
+  version: 1.0.0
+tags:
+  - name: Host
+  - name: Content
+  - name: Author
+paths:
+  /:
+    get:
+      tags:
+        - Host
+      summary: Данные о хостинге
+      description: Информация о поддерживаемых типах контента и версиях API
+      responses:
+        '200':
+          description: Информация о хостинге
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HostInfo'
+              example:
+                content-type: 'video'
+                api-version:
+                  min: 0
+                  max: 0
+                name: 'Example Host'
+                law-description: 'Legal description'
+components:
+  schemas:
+    HostInfo:
+      type: object
+      required:
+        - content-type
+        - api-version
+        - name
+      properties:
+        content-type:
+          type: string
+          description: "Тип контента: 'composition' | 'video' и др."
+        api-version:
+          type: object
+          required:
+            - min
+            - max
+          properties:
+            min:
+              type: integer
+            max:
+              type: integer
+        name:
+          type: string
+        law-description:
+          type: string
+  parameters: {}
+  responses: {}
+  securitySchemes: {}
+  requestBodies: {}
+  headers: {}
+  examples: {}
+  links: {}
+  callbacks: {}

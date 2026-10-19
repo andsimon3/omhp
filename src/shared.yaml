@@ -1,0 +1,17 @@
+openapi: 3.0.3
+components:
+  schemas:
+    Link:
+      type: string
+      format: uri
+    ContentBase:
+      type: object
+      properties:
+        authors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+        associated_links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
