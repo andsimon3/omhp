@@ -5,8 +5,8 @@
   "license": "CC-BY-4.0",
   "description": "Diplodoc documentation project",
   "scripts": {
-    "build": "yfm build -i . -o ./build",
-    "dev": "yfm build -i . -o ./build -w",
+    "build": "yfm build -i ./src -o ./build",
+    "dev": "yfm build -i ./src -o ./build -w",
     "preview": "npx --yes serve ./build"
   },
   "devDependencies": {

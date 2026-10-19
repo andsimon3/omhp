@@ -1,9 +1,9 @@
-title: Open Media Host Protocol
+title: OMHP - Open Media Host Protocol
 href: index.md
 navigation:
   header:
     rightItems:
       - type: controls
 items:
-  - name: Overview
+  - name: Введение
     href: index.md
