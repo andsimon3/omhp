@@ -1,0 +1,15 @@
+lang: ru
+interface:
+  favicon-src: https://raw.githubusercontent.com/andsimon3/omhp/master/src/logo.svg
+
+  # Секция параметров вьюера (docs-viewer)
+docs-viewer:
+  # Настройки логотипа
+  logo-options:
+    src: https://raw.githubusercontent.com/andsimon3/omhp/master/src/logo.svg
+    src-dark: https://raw.githubusercontent.com/andsimon3/omhp/master/src/logo.svg
+    src-mobile: https://raw.githubusercontent.com/andsimon3/omhp/master/src/logo.svg
+    src-mobile-dark: https://raw.githubusercontent.com/andsimon3/omhp/master/src/logo.svg
+    src-preview: https://raw.githubusercontent.com/andsimon3/omhp/master/src/logo.svg
+    # Если логотипа нет, то вместо него можно задать текст
+    title: OMHP

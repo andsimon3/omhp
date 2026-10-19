@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-44 -16 344 336" role="img" aria-labelledby="title">
+  <title id="title">Поиск по видео, изображениям и тексту</title>
+  <defs>
+    <clipPath id="lens"><circle cx="83" cy="63" r="41"/></clipPath>
+    <path id="card" d="M85 0C155 0 170 15 170 85S155 170 85 170S0 155 0 85S15 0 85 0Z"/>
+  </defs>
+  <g stroke="#142B49" stroke-width="5" stroke-linejoin="round">
+    <g transform="translate(98 50) rotate(-11 20 24)">
+      <use href="#card" fill="#D7E9F8"/>
+      <path d="M32 35H138M24 55H146M24 75H133M24 95H146M24 115H136M24 135H112" fill="none" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(91 86) rotate(8 27 -29)">
+      <use href="#card" fill="#77A9D8"/>
+      <path d="M17 132L59 63L86 95L119 49L153 132Z" fill="#142B49" stroke="none"/>
+      <circle cx="139" cy="33" r="5" fill="#142B49" stroke="none"/>
+    </g>
+    <g transform="translate(55 101) rotate(19 63 -44)">
+      <use href="#card" fill="#254D7D"/>
+      <path d="M65 46L130 85L65 124Z" fill="#FFF" stroke="#FFF" stroke-width="4"/>
+    </g>
+  </g>
+  <g transform="translate(101 63) rotate(10) scale(1.46) translate(-83 -63)" stroke="#142B49" stroke-linecap="round">
+    <path d="M55 99L23 141" stroke-width="20"/>
+    <circle cx="83" cy="63" r="45" fill="#F5FAFF" stroke-width="9"/>
+    <path d="M65 68L88 51L109 59L96 85L68 83L65 68L83 66L109 59M88 51L83 66L96 85M68 83L83 66M88 51L97 18M109 59L131 46M96 85L109 102M68 83L50 98M65 68L39 66" clip-path="url(#lens)" fill="none" stroke="#77A9D8" stroke-width="2.5"/>
+    <g fill="#254D7D" stroke="#F5FAFF" stroke-width="1.5">
+      <circle cx="65" cy="68" r="4.5"/>
+      <circle cx="88" cy="51" r="4.5"/>
+      <circle cx="109" cy="59" r="4.5"/>
+      <circle cx="96" cy="85" r="4.5"/>
+      <circle cx="68" cy="83" r="4.5"/>
+      <circle cx="83" cy="66" r="4.5"/>
+    </g>
+    <path d="M54 65C55 48 68 36 88 34" fill="none" stroke="#A3C8E9" stroke-width="9" opacity="0.9"/>
+  </g>
+</svg>

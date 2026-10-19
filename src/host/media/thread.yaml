@@ -1,0 +1,51 @@
+openapi: 3.0.3
+info:
+  title: OMHP Host API - Composition
+  description: Open Media Host Protocol - Composition
+  version: 1.0.0
+tags:
+  - name: Content
+paths:
+  /thread/{id}:
+    get:
+      tags:
+        - Content
+      summary: Получение данных о треде
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Информация о треде
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThreadContent'
+components:
+  schemas:
+    ThreadContent:
+      allOf:
+        - $ref: '../../shared.yaml#/components/schemas/ContentBase'
+        - type: object
+          properties:
+            theme:
+              description: |
+                Ссылка на обсуждаемый объект.
+                Например комментарий к видео будет содержать ссылку на видео, а ответ на комментарий - ссылку на комментарий
+              type: string
+            text:
+              type: string
+          required:
+            - theme
+            - text
+  parameters: {}
+  responses: {}
+  securitySchemes: {}
+  requestBodies: {}
+  headers: {}
+  examples: {}
+  links: {}
+  callbacks: {}
